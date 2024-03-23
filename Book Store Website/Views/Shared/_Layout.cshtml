@@ -6,21 +6,37 @@
     <title>@ViewData["Title"] - Noah's Books</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Book_Store_Website.styles.css" asp-append-version="true" />
+    <style>
+        .navbar {
+            background-color: #90eebf;
+        }
+        .navbar-nav .nav-link {
+            color: #fff;
+            /* background-color: #6c757d; */
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-right: 10px;
+        }
+        .footer {
+            /* background-color: #90eebf; */
+            padding: 20px 0;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Book_Store_Website</a>
+        <nav class="navbar navbar-expand-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><strong>Noah's Books</strong></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Books</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Books</a>
                         </li>
                     </ul>
                 </div>
@@ -32,11 +48,8 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Book_Store_Website - <a asp-area="" asp-controller="Home" asp-action="Index">Storefront</a>
-        </div>
+    <footer class="border-top footer text-muted" style="text-align: center;">
+        &copy; 2024 - Noah's Books - <a asp-area="" asp-controller="Home" asp-action="Index">Storefront</a>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

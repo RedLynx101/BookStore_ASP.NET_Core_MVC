@@ -4,42 +4,48 @@
 
 @model IEnumerable<Book_Store_Website.Models.Book>
 
-<h1>Book List</h1>
+<div class="container">
+    <h1 class="my-4">Book List</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Publisher</th>
-            <th>ISBN</th>
-            <th>Classification</th>
-            <th>Category</th>
-            <th>Page Count</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var book in Model)
-        {
+    <table class="table table-bordered table-striped">
+        <thead>
             <tr>
-                <td>@book.Title</td>
-                <td>@book.Author</td>
-                <td>@book.Publisher</td>
-                <td>@book.Isbn</td>
-                <td>@book.Classification</td>
-                <td>@book.Category</td>
-                <td>@book.PageCount</td>
-                <td>@book.Price</td>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>ISBN</th>
+                <th>Classification</th>
+                <th>Category</th>
+                <th>Page Count</th>
+                <th>Price</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.Publisher</td>
+                    <td>@book.Isbn</td>
+                    <td>@book.Classification</td>
+                    <td>@book.Category</td>
+                    <td>@book.PageCount</td>
+                    <td>@book.Price.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-<!-- Pagination -->
-<div>
-    @for (int i = 1; i <= ViewBag.TotalPages; i++)
-    {
-        <a asp-action="Index" asp-route-pageNum="@i" class="btn btn-primary @(i == ViewBag.CurrentPage ? "active" : "")">@i</a>
-    }
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-action="Index" asp-route-pageNum="@i">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
 </div>
